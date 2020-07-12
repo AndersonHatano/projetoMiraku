@@ -1,0 +1,19 @@
+{
+  "name": "miraku",
+  "version": "1.0.0",
+  "description": "Serviço de back-end do projeto Miraku",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndersonHatano/projetoMiraku.git"
+  },
+  "author": "anderson.hatano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndersonHatano/projetoMiraku/issues"
+  },
+  "homepage": "https://github.com/AndersonHatano/projetoMiraku#readme"
+}
