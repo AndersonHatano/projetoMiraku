@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/AndersonHatano/projetoMiraku/issues"
   },
-  "homepage": "https://github.com/AndersonHatano/projetoMiraku#readme"
+  "homepage": "https://github.com/AndersonHatano/projetoMiraku#readme",
+  "dependencies": {
+    "@types/pg": "^7.14.4",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "node-crud": "^2.1.7",
+    "pg": "^8.3.0"
+  }
 }
