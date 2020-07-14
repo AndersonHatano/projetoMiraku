@@ -12,7 +12,8 @@ async function sendResPost(req, res,next){
 
 async function sendResLogin(req, res, next){
     console.log("Caiu no Controller de login de cliente")
-    console.log(resultado.rows[0])
+    //console.log(req.body['status_senha'])
+    //console.log(resultado.rows[0])
 
     if(resultado.rows[0] != null && req.body['token'] != null){
 
@@ -20,10 +21,12 @@ async function sendResLogin(req, res, next){
         "Resultado":resultado.rows[0],
         "jwt":req.body['token']
         });
+        //console.log(resultado.rows[0])
+        //console.log(req.body['token'])
+    }
 
-
-        console.log(resultado.rows[0])
-        console.log(req.body['token'])
+    else if(req.body['status_senha'] == false){
+        res.status(200).send({"Message":"Senha ou Usuário incorreto."});
     }
  
     else{
