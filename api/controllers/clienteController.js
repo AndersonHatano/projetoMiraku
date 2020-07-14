@@ -26,7 +26,7 @@ async function sendResLogin(req, res, next){
     }
 
     else if(req.body['status_senha'] == false){
-        res.status(200).send({"Message":"Senha ou Usuário incorreto."});
+        res.status(401).send({"Message":"Senha ou Usuário incorreto."});
     }
  
     else{
