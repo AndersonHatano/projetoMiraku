@@ -4,7 +4,7 @@ const express = require('express')//não é nativo
 const cors = require('cors')
 const app = express( ) //vai criar uma constante que encapsula todos os comportamentos de um aplicativo
 const routesCliente = require('./api/routes/rotaCliente');
-//const routesAdministrador = require('./api/routes/rotaAdministrador');
+const routesAdministrador = require('./api/routes/rotaAdministrador');
 //const routesCombo = require('./api/routes/rotaCombo');
 //const routesProduto = require('./api/routes/rotaProduto');
 
@@ -15,7 +15,7 @@ app.use(cors({
 }))
 
 app.use('/cliente', routesCliente);
-//app.use('/administrador', routesAdministrador);
+app.use('/admin', routesAdministrador);
 //app.use('/combo', routesCombo);
 //app.use('/produto', routesProduto);
 
