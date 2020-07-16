@@ -10,7 +10,7 @@ module.exports = (multer({
         destination: (req, file, cb) => {
             
             // Setamos o destino como segundo paramêtro do callback
-            cb(null, '../public');
+            cb(null, './api/public');
         },
         
         // E como devem se chamar?

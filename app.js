@@ -6,7 +6,7 @@ const app = express( ) //vai criar uma constante que encapsula todos os comporta
 const routesCliente = require('./api/routes/rotaCliente');
 const routesAdministrador = require('./api/routes/rotaAdministrador');
 //const routesCombo = require('./api/routes/rotaCombo');
-//const routesProduto = require('./api/routes/rotaProduto');
+const routesProduto = require('./api/routes/rotaProduto');
 const path = require('path');
 
 app.use( bodyParser.json() );//recebe o request e "parseia" os dados como json

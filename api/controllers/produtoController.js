@@ -10,6 +10,21 @@ async function sendResPost(req, res,next){
     next()
 }
 
+async function sendResGetAll(res,next){
+    console.log("Chegou no controller de pesquisa de Produtos")
+    console.log(resultado.rows)
+
+    if(resultado.rows != null){
+        res.status(200).send({"Message": "Pesquisa de produtos com sucesso.",
+        "Resultado": resultado.rows
+    })
+    }
+    else{
+        res.status(404).send({"Message": "Problema na Pesquisa de produtos."})
+    }
+    next()
+}
+
 async function sendResLogin(req, res, next){
     console.log("Caiu no Controller de login de Produto")
     //console.log(req.body['status_senha'])
@@ -36,4 +51,4 @@ async function sendResLogin(req, res, next){
 }
 
 
-module.exports = {sendResPost, sendResLogin}
+module.exports = {sendResPost, sendResLogin, sendResGetAll}

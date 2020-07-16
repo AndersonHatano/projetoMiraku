@@ -10,21 +10,18 @@ async function inserirProduto(prod){
     let client = await conexao.pool.connect();
     let resultado = await client.query(insertQuery);
 
-
-    console.log(resultado.rowCount)
-
     client.release();
 
     return resultado;
 
 }
 
-async function selectAdmin(login) {
+async function selectTodosProdutos() {
  
     const selectQuery = 
     {
-        text: 'SELECT nome, login, senha FROM administrador where login ilike $1', 
-        values:[login],
+        text: 'SELECT * FROM produto'
+
     }
 
     let client = await conexao.pool.connect();
@@ -35,5 +32,5 @@ async function selectAdmin(login) {
     return resultado;
 }
 
-module.exports = {inserirProduto, selectAdmin}
+module.exports = {inserirProduto, selectTodosProdutos}
 
