@@ -10,7 +10,7 @@ async function sendResPost(req, res,next){
     next()
 }
 
-async function sendResGetAll(res,next){
+async function sendResGetAll(req, res, next){
     console.log("Chegou no controller de pesquisa de Produtos")
     console.log(resultado.rows)
 

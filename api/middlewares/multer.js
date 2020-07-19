@@ -19,10 +19,14 @@ module.exports = (multer({
             // Setamos o nome do arquivo que vai ser salvado no segundo paramêtro
             // Apenas concatenei a data atual com o nome original do arquivo, que a biblioteca nos disponibiliza.
             cb(null, Date.now().toString() + '-' + file.originalname);
+            //console.log(Date.now().toString() + '-' + file.originalname);
+            req['url_foto_produto'] = Date.now().toString() + '-' + file.originalname;
             
         }
         
-    }), // FIM DA CONFIGURAÇÃO DE ARMAZENAMENTO
+    }),
+          
+    // FIM DA CONFIGURAÇÃO DE ARMAZENAMENTO
  // Como esses arquivos serão filtrados, quais formatos são aceitos/esperados?
  fileFilter: (req, file, cb) => {
      
@@ -39,5 +43,4 @@ module.exports = (multer({
     // Se o arquivo não bateu com nenhum aceito, executamos o callback com o segundo valor false (validação falhouo)
     return cb(null, false);
 }
-
 }));
