@@ -33,5 +33,23 @@ async function selectTodosProdutos() {
     return resultado;
 }
 
-module.exports = {inserirProduto, selectTodosProdutos}
+async function pesquisaUmProduto(idProduto) {
+ 
+    const selectQuery = 
+    {
+        text: 'SELECT * FROM produto where id = $1',
+        values: [idProduto],
+
+    }
+
+    let client = await conexao.pool.connect();
+    let resultado = await client.query(selectQuery);
+
+    //console.log(resultado)
+    client.release();
+    
+    return resultado;
+}
+
+module.exports = {inserirProduto, selectTodosProdutos, pesquisaUmProduto}
 

@@ -12,9 +12,9 @@ async function sendResPost(req, res,next){
 
 async function sendResGetAll(req, res, next){
     console.log("Chegou no controller de pesquisa de Produtos")
-    console.log(resultado.rows)
+    //console.log(resultado.rows)
 
-    if(resultado.rows != null){
+    if(resultado.rows != 0){
         res.status(200).send({"Message": "Pesquisa de produtos com sucesso.",
         "Resultado": resultado.rows
     })
@@ -25,30 +25,23 @@ async function sendResGetAll(req, res, next){
     next()
 }
 
-async function sendResLogin(req, res, next){
-    console.log("Caiu no Controller de login de Produto")
-    //console.log(req.body['status_senha'])
-    //console.log(resultado.rows[0])
+async function sendResGetOne(req, res, next){
+    console.log("Chegou no controller de pesquisa de Produtos")
+    //console.log(resultado.rows)
 
-    if(resultado.rows[0] != null && req.body['token'] != null){
-
-        res.status(200).send({"Message":"Login efetuado com sucesso.",
-        "Resultado":resultado.rows[0],
-        "jwt":req.body['token']
-        });
-        //console.log(resultado.rows[0])
-        //console.log(req.body['token'])
+    if(resultado.rows != 0){
+        res.status(200).send({"Message": "Pesquisa do produto com sucesso.",
+        "Resultado": resultado.rows
+    })
     }
-
-    else if(req.body['status_senha'] == false){
-        res.status(401).send({"Message":"Senha ou Usuário incorreto."});
+    else if(resultado.rows == 0){
+        res.status(204).send({"Message": "Produto Inexistente.",
+    })
     }
- 
     else{
-        res.status(404).send({"Message": "Problema no login do cliente."})
+        res.status(404).send({"Message": "Problema na Pesquisa de produtos."})
     }
     next()
 }
 
-
-module.exports = {sendResPost, sendResLogin, sendResGetAll}
+module.exports = {sendResPost, sendResGetAll, sendResGetOne}
